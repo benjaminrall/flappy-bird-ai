@@ -1,6 +1,6 @@
 import pygame, neat, time, os, random  # import all needed modules
 
-pygame.init()  # initialise pygame
+pygame.font.init()  # initialise pygame
 
 # use capitals for constants
 WIN_WIDTH = 500  # set window width and height
@@ -12,6 +12,7 @@ BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bi
 PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))  # load pipe image
 BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))  # load floor image
 BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))  # load background image
+ICON_IMG = pygame.image.load(os.path.join("imgs", "bird2.png"))
 FONT = pygame.font.SysFont("comicsans", 50)
 
 
@@ -177,6 +178,8 @@ def main(genomes, config):
     base = Base(730)
     pipes = [Pipe(600)]
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+    pygame.display.set_caption("Flappy Bird")
+    pygame.display.set_icon(ICON_IMG)
     clock = pygame.time.Clock()
     score = 0
     run = True
